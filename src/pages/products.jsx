@@ -3,10 +3,11 @@ import React, {useState, useEffect} from 'react'
 //import {placeHolderApi} from '../Api/placeHolderApi'
 
 export const Products = () => {
-    const [product, setsroduct] = useState([])
+    const [product, setProduct] = useState([])
     const getProductData = async() => {
         const res = await axios.get ('https://ecomerce-master.herokuapp.com/api/v1/item')
-        console.log(res.data.data)
+        console.log(res.data)
+        setProduct(res.data)
     }
 
     useEffect(() => {
@@ -16,6 +17,12 @@ export const Products = () => {
     }, [])
     
     return (
-        <div></div>
+        <>
+            {
+                Products.map(product => {
+
+                })
+            }
+        </>
     )
 }
