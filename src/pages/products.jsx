@@ -7,6 +7,9 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom'
+import '../App.css'
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 
 export const Products = (term) => {
@@ -96,8 +99,10 @@ export const Products = (term) => {
                 
             product.map(user => (
                     //search === "hola" ? <Products />: <notFound />
-                    <div key={user.id} style={{width: '10px'}}>
+                    <Row xs={1} md={1} className="g-4">
+                    <div id='carta' key={user.id}>
                     <Link to={`/products/${user._id}`}>
+                    <Col>
                     <Card style={{ width: '18rem', heigth: '2rem' }}>
                         <Card.Img variant="top" src={`${user.image}`} />
                             <Card.Body>
@@ -113,8 +118,10 @@ export const Products = (term) => {
                             <Card.Link href="#">{`Costo ${user.price}`}</Card.Link>
                             </Card.Body>
                             </Card>
+                            </Col>
                     </Link>
                     </div>
+                    </Row>
                     ))
             }
             </>

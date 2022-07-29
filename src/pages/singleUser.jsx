@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { placeHolderApi } from '../Api/placeHolderApi'
-import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import '../App.css'
 
 
 
@@ -62,21 +62,14 @@ return (
             }
 
         {
-            <Card style={{ width: '18rem', heigth: '2rem' }}>
-                        <Card.Img variant="top" src={`${single.image}`} />
-                            <Card.Body>
-                                <Card.Title>{`${single.product_name}`}</Card.Title>
-                            <Card.Text>
-                                {
-                                    `${single.description}`
-                                }
-                            </Card.Text>
-                            </Card.Body>
-                            <Card.Body>
-                            <Card.Link href="#">{`${single.category}`}</Card.Link>
-                            <Card.Link href="#">{`Costo ${single.price}`}</Card.Link>
-                            </Card.Body>
-                            </Card>
+            <article className='card'>
+                <img src={`${single.image}`} alt="" className='card__img' />
+                <div className='card__data'>
+                    <h2 className='card__title'>{`${single.product_name}`}</h2>
+                <p className='card__description'>{`${single.description}`}</p>
+                <a href='/final-proyect/src/pages/notFound.jsx' className='card__btn'>{`${single.price}`}</a>
+                </div>
+                </article>
         }
         </>
 
